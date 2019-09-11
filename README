@@ -1,0 +1,15 @@
+#clinica-medicala
+
+Gasesti detalierea in comentariile de pe cod, pe care sper ca le-am pus bine. Astept o parere si despre asta ;)
+
+Long story short:
+
+-aplicatia gestioneaza consultatiile unei clinici medicale (pastrand proportiile) -poate fi accesata de pacienti sau de medici, ambele entitati fiind citite din fisiere
+
+-pacientii pot sa programeze o consultatie, deocamdata doar la medicul lor de familie, a carui CNP (al medicului) se gaseste in randul fiecarui pacient din fisier
+
+-medicul poate: 1.sa vizualizeze consultatiile ramase 2.sa ofere o consultatie (dureaza 3 secunde)
+
+-pentru a putea folosi aplicatia, atat pacientii cat si medicii trebuie sa introduca cnp-ul 1.pacientul pt a fi cautat in lista cu pacienti (citita din fisier), apoi sa i se gaseasca medicul de care apartine 2.medicul pt a fi cautat in lista cu medici, apoi sa realizeze actiunile dorite
+
+Gasesti detalii si in cod.
