@@ -12,15 +12,17 @@ import java.util.Scanner;
 public class PatientMenuLogic {
 
     private long CNP;
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
+    private DatabaseManager databaseManager;
 
     private List<Patient> patientList;
     private List<Doctor> doctorList;
 
-    public PatientMenuLogic(long CNP, List<Patient> patientList, List<Doctor> doctorList) {
+    public PatientMenuLogic(DatabaseManager databaseManager) {
         this.CNP = CNP;
         this.patientList = patientList;
         this.doctorList = doctorList;
+        Scanner scanner = new Scanner(System.in);
     }
 
 
@@ -90,9 +92,25 @@ public class PatientMenuLogic {
                  */
             } else {
                 DisplayData.displayMessage(Consts.PATIENT_NOT_REGISTERED);
-                System.out.println("Nu exista optiunea sa va inregistram inca.");
                 DisplayData.newLine();
-                isPatientMenuRunning = false;
+                DisplayData.displayMessage(Consts.REGISTER_PATIENT_REGISTER_ME);
+                DisplayData.displayMessage(Consts.REGISTER_PATIENT_BACK_TO_MAIN_MENU);
+
+                int userOption = scanner.nextInt();
+
+                switch (option) {
+                    case 1:
+                        DisplayData.newLine();
+                        //databaseManager.registerPatient();
+                        isPatientMenuRunning = false;
+                        break;
+                    case 2:
+                    default:
+                        isPatientMenuRunning = false;
+                        break;
+
+                }
+                //System.out.println("Nu exista optiunea sa va inregistram inca.");
             }
         }
 

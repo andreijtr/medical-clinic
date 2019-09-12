@@ -58,4 +58,16 @@ public interface Consts {
     String DOCTOR_MENU_OFFER_CONSULTATION= "2.Ofera o consultatie";
     String DOCTOR_MENU_BACK_TO_MAIN_MENU = "3.Inapoi la meniul principal";
     String DOCTOR_NOT_REGISTERED = "Nu v-am gasit in baza de date!";
+
+    /**
+     *mesaje inregistrare pacient
+     */
+    String REGISTER_PATIENT_REGISTER_ME = "1.Inregistreaza-ma ";
+    String REGISTER_PATIENT_BACK_TO_MAIN_MENU = "2.Inapoi la meniul principal";
+    String REGISTER_PATIENT_GIVE_FIRST_NAME = "Introducteti prenumele dvs: ";
+    String REGISTER_PATIENT_GIVE_LAST_NAME = "Introducteti numele dvs: ";
+    String REGISTER_PATIENT_GIVE_CNP = "Introducteti CNP-ul dvs: ";
+    String REGISTER_PATIENT_CHOOSE_DOCTOR = "Alegeti doctorul de familie din lista: ";
+
+
 }
