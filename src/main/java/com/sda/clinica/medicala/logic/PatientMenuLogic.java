@@ -18,13 +18,13 @@ public class PatientMenuLogic {
     private List<Patient> patientList;
     private List<Doctor> doctorList;
 
-    public PatientMenuLogic(DatabaseManager databaseManager) {
+    public PatientMenuLogic(DatabaseManager databaseManager, long CNP) {
+        this.scanner = new Scanner(System.in);
+        this.databaseManager = databaseManager;
+        this.patientList = databaseManager.getPatientsList();
+        this.doctorList = databaseManager.getDoctorsList();
         this.CNP = CNP;
-        this.patientList = patientList;
-        this.doctorList = doctorList;
-        Scanner scanner = new Scanner(System.in);
     }
-
 
     /**
      * Pacientul va putea sa programeze o consultatie la medicul de familie sau sa revina la meniul principal
@@ -101,7 +101,7 @@ public class PatientMenuLogic {
                 switch (option) {
                     case 1:
                         DisplayData.newLine();
-                        //databaseManager.registerPatient();
+                        databaseManager.registerPatient();
                         isPatientMenuRunning = false;
                         break;
                     case 2:

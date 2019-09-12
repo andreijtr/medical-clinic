@@ -10,12 +10,16 @@ import java.util.Scanner;
 public class DoctorMenuLogic {
 
     private List<Doctor> doctorList;
-    private long CNP;
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
+    private DatabaseManager databaseManager;
 
-    public DoctorMenuLogic(long CNP, List<Doctor> doctorList) {
+    private long CNP;
+
+    public DoctorMenuLogic(DatabaseManager databaseManager, long CNP) {
+        this.scanner = new Scanner(System.in);
         this.CNP = CNP;
-        this.doctorList = doctorList;
+        this.databaseManager = databaseManager;
+        this.doctorList = databaseManager.getDoctorsList();
     }
 
     /**

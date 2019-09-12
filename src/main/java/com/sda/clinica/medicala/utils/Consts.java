@@ -68,6 +68,7 @@ public interface Consts {
     String REGISTER_PATIENT_GIVE_LAST_NAME = "Introducteti numele dvs: ";
     String REGISTER_PATIENT_GIVE_CNP = "Introducteti CNP-ul dvs: ";
     String REGISTER_PATIENT_CHOOSE_DOCTOR = "Alegeti doctorul de familie din lista: ";
+    String REGISTER_PATIENT_DOCTOR_SPECIALIZATION = "generala";
 
 
 }

@@ -16,9 +16,7 @@ package com.sda.clinica.medicala.logic;
 
 import com.sda.clinica.medicala.display.DisplayData;
 import com.sda.clinica.medicala.doctor.Doctor;
-import com.sda.clinica.medicala.doctor.DoctorsReader;
 import com.sda.clinica.medicala.patient.Patient;
-import com.sda.clinica.medicala.patient.PatientsReader;
 import com.sda.clinica.medicala.utils.Consts;
 
 import java.util.InputMismatchException;
@@ -30,14 +28,13 @@ public class ApplicationLogic {
     private List<Patient> patientsList;
     private List<Doctor> doctorsList;
 
-    private PatientsReader patientsReader;
-    private DoctorsReader doctorsReader;
+    private DatabaseManager databaseManager;
+
 
     public ApplicationLogic() {
-        this.patientsReader = new PatientsReader();
-        this.doctorsReader = new DoctorsReader();
-        patientsList = patientsReader.readPatientsFromFile(Consts.PATH_TO_PATIENTS_FILE);
-        doctorsList = doctorsReader.readDoctorsFromFile(Consts.PATH_TO_DOCTORS_FILE);
+        databaseManager = new DatabaseManager();
+        patientsList = databaseManager.getPatientsList();
+        doctorsList = databaseManager.getDoctorsList();
     }
 
     /**
@@ -84,7 +81,7 @@ public class ApplicationLogic {
 
             switch (userOption) {
                 case 1:
-                    patientMenuLogic = new PatientMenuLogic(userCNP, patientsList, doctorsList);
+                    patientMenuLogic = new PatientMenuLogic(databaseManager, userCNP);
                     DisplayData.displayPatientMenu();
 
                     int patientOption = scanner.nextInt();
@@ -92,7 +89,7 @@ public class ApplicationLogic {
                     break;
 
                 case 2:
-                    doctorMenuLogic = new DoctorMenuLogic(userCNP, doctorsList);
+                    doctorMenuLogic = new DoctorMenuLogic(databaseManager, userCNP);
                     doctorMenuLogic.solveDoctorOption();
                     break;
 
