@@ -27,8 +27,8 @@ public class PatientMenuLogic {
     }
 
     /**
-     * Pacientul va putea sa programeze o consultatie la medicul de familie sau sa revina la meniul principal
-     * daca pacientul nu apare in DB va primi un mesaj si se aplicatia se intoarce la MAIN MENU
+     * Pacientul va putea sa programeze o consultatie la un medic la alegere sau sa revina la meniul principal
+     * daca pacientul nu apare in DB va primi optiunea de a se inregistra, sau de a se intoarce in meniul principal
      */
 
     public void solvePatientOption(int option) {
@@ -50,8 +50,7 @@ public class PatientMenuLogic {
             if (patientIsInList) {
                 switch (option) {
                     case 1:
-                        long CNPOfDoctorForConsultation = 0;
-                        Doctor doctorForConsultation = null;
+                        Doctor doctorForConsultation;
 
                         /**s-a preluat cnp-ul doctorului pacientului, i se afiseaza lista de medici pt a alege la care vrea
                          * consultatia. Medicul sau de familie va fi marcat
@@ -74,16 +73,17 @@ public class PatientMenuLogic {
                         if (patientOption < index && patientOption != 0) {
                             doctorForConsultation = doctorList.get(patientOption - 1);
 
+                            //poate avea o singura programare la acelasi medic(nu poate aparea de mai multe ori in coada)
                             if (doctorForConsultation.managerConsultations.validatePatientForConsultation(actualPatient)) {
                                 DisplayData.displayMessage(Consts.PATIENT_YOU_ALREADY_HAVE_A_CONSULTATION);
-                                //isPatientMenuRunning = false;
+                                isPatientMenuRunning = false;
                                 break;
                             } else {
                                 DisplayData.displayMessage(Consts.PATIENT_GIVE_REASON_FOR_CONSULTATION);
                                 String reasonForConsultation = scanner.nextLine();
 
                                 /**se programeaza o consultatie pt pacientul actual folosind managerul de consultatii (fiecare
-                                 *doctor are un astfel de manager
+                                 *doctor are un astfel de manager)
                                  */
                                 Consultation consultationOfActualPatient = new Consultation(actualPatient, reasonForConsultation);
                                 doctorForConsultation.managerConsultations.scheduleConsultation(consultationOfActualPatient);
@@ -106,10 +106,8 @@ public class PatientMenuLogic {
                         DisplayData.displayMessage(Consts.OPTION_NOT_VALID);
                         isPatientMenuRunning = false;
                 }
-                /**dupa fiecare operatia a pacientului in meniu se revine la meniul principal
-                 * intrucat un pacient poate sa faca o singura programare deocamdata la un singur medic
-                 * Cand o sa poata alege medicul la care sa faca programarea, se va verifica daca nu cumva are deja o programare
-                 * facuta la acel medic(acum poate face mai multe programari la acelasi medic)
+                /**
+                 * dupa fiecare operatia a pacientului in meniu se revine la meniul principal
                  */
             } else {
                 DisplayData.displayMessage(Consts.PATIENT_NOT_REGISTERED);

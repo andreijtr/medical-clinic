@@ -1,3 +1,7 @@
+/**
+ *Un obiect de acest tip afiseaza si rezolva optiunile medicului
+ */
+
 package com.sda.clinica.medicala.logic;
 
 import com.sda.clinica.medicala.display.DisplayData;

@@ -8,8 +8,9 @@
  * la un obiect de tip DoctorMenuLogic pt a rezolva cerintele medicului
  *
  *Fisierele din resources contin pt PACIENT :nume, prenume, cnpPacient si cnpDoctor
- *Am pus si cnpDoctor pt ca l-am considerat medic de familie, daca pacientul nu selecteaza un medic specific,
- * consultatia va fi programata la medicul de familie al pacientului.
+ *Am pus si cnpDoctor pt ca l-am considerat medic de familie
+ * Pacientul poate alege la ce medic sa faca consultatia, iar medicul de familie al pacientului este marcat in lista
+ * de medici
  */
 
 package com.sda.clinica.medicala.logic;

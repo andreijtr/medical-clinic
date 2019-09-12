@@ -1,3 +1,11 @@
+/**
+ *1.Aceasta clasa are rolul de a crea citi din fisier pacientii si medicii si ofera metode publice GET pt a returna aceste liste
+ *2.Are o metoda pentru inregistrarea unui nou pacient
+ *3.Intrucat meniurile pt pacient si medic folosesc un astfel de obiect, datele sunt mereu actualizate
+ *4.Adica se foloseste un singur obiect pt a gestiona listele cu pacienti, iar adaugarea unui nou pacient nu necesita modificari
+ * la nivelul celorlalte meniuri
+ */
+
 package com.sda.clinica.medicala.logic;
 
 import com.sda.clinica.medicala.display.DisplayData;
@@ -41,6 +49,7 @@ public class DatabaseManager {
         int i = 1;
         List<Doctor> familyDoctors = new LinkedList<>();
 
+        //afiseaza doar medicii de familie
         for (Doctor d : doctorsList) {
             if(d.getSpecialization().equals(Consts.REGISTER_PATIENT_DOCTOR_SPECIALIZATION)) {
                 DisplayData.displayMessage(i + ". " + d.getLastName() + " " + d.getFirstName() + " cnp: " + d.getCNP());
@@ -52,6 +61,7 @@ public class DatabaseManager {
         int choosenDoctor = scanner.nextInt();
         long doctorCNP = 0;
 
+        //se valideaza optiunea, sa fie in intervalul afisat
         if (choosenDoctor < i && choosenDoctor != 0) {
             doctorCNP = familyDoctors.get(choosenDoctor - 1).getCNP();
         } else {
