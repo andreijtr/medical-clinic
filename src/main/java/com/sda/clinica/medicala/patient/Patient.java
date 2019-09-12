@@ -2,6 +2,8 @@ package com.sda.clinica.medicala.patient;
 
 import com.sda.clinica.medicala.model.Person;
 
+import java.util.Objects;
+
 public class Patient extends Person {
 
     private long CNPOfPatientDoctor;
@@ -18,6 +20,15 @@ public class Patient extends Person {
     public String toString() {
         return "Patient: " + firstName + " " + lastName + " CNP: " + CNP;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Patient)) return false;
+        Patient patient = (Patient) o;
+        return super.CNP == patient.CNP;
+    }
+
 
     public long getCNPOfPatientDoctor() {
         return CNPOfPatientDoctor;

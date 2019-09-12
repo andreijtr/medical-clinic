@@ -47,9 +47,12 @@ public interface Consts {
     String PATIENT_MENU_BACK_TO_MAIN_MENU = "2.Inapoi la meniul principal";
     String PATIENT_NOT_REGISTERED = "Nu v-am gasit in baza de date!";
     String PATIENT_REGISTERED = "V-am gasit in baza de date!";
+    String PATIENT_FAMILY_DOCTOR_MESSAGE = " (medicul dvs de familie)";
     String PATIENT_GIVE_REASON_FOR_CONSULTATION = "Care este motivul consultatiei?";
     String PATIENT_YOU_HAVE_A_CONSULTATION = "Felicitari! Ati programat o consultatie la medicul ";
     String PATIENT_WAINT_FOR_YOUR_TURN = "Asteptati-va randul";
+    String PATIENT_CHOOSE_DOCTOR = "Alegeti un medic";
+    String PATIENT_YOU_ALREADY_HAVE_A_CONSULTATION = "Deja aveti o consultatie programata la acest medic. Asteptati-va randul.";
 
     /**
      *mesaje meniu doctor
@@ -65,10 +68,11 @@ public interface Consts {
     String REGISTER_PATIENT_REGISTER_ME = "1.Inregistreaza-ma ";
     String REGISTER_PATIENT_BACK_TO_MAIN_MENU = "2.Inapoi la meniul principal";
     String REGISTER_PATIENT_GIVE_FIRST_NAME = "Introducteti prenumele dvs: ";
-    String REGISTER_PATIENT_GIVE_LAST_NAME = "Introducteti numele dvs: ";
+    String REGISTER_PATIENT_GIVE_LAST_NAME = "Introduceti numele dvs: ";
     String REGISTER_PATIENT_GIVE_CNP = "Introducteti CNP-ul dvs: ";
     String REGISTER_PATIENT_CHOOSE_DOCTOR = "Alegeti doctorul de familie din lista: ";
     String REGISTER_PATIENT_DOCTOR_SPECIALIZATION = "generala";
+    String REGISTERED_SUCCESSFUL = "Felicitari! V-ati inregistrat cu succes si acum puteti programa o consultatie.";
 
 
 }

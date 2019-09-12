@@ -35,7 +35,7 @@ public class DatabaseManager {
         DisplayData.displayMessage(Consts.REGISTER_PATIENT_GIVE_LAST_NAME);
         String lastName = scanner.next();
         DisplayData.displayMessage(Consts.REGISTER_PATIENT_GIVE_CNP);
-        long registerPatientCNP = scanner.nextLong();
+        long registerPatientCNP = scanner.nextLong();   //ar trebui validat pt ca altfel o sa ai 2 pacienti cu acelasi cnp
 
         DisplayData.displayMessage(Consts.REGISTER_PATIENT_CHOOSE_DOCTOR);
         int i = 1;
@@ -53,7 +53,7 @@ public class DatabaseManager {
         long doctorCNP = 0;
 
         if (choosenDoctor < i && choosenDoctor != 0) {
-            doctorCNP = familyDoctors.get(i - 1).getCNP();
+            doctorCNP = familyDoctors.get(choosenDoctor - 1).getCNP();
         } else {
             DisplayData.displayMessage(Consts.OPTION_NOT_VALID);
         }
@@ -62,10 +62,12 @@ public class DatabaseManager {
         /**
          *linia urmatoare va face update la lista cu pacienti, iar fiecare meniu care va folosi lista din acest moment
          *o va avea actualizata prin intermediul DatabaseManager care returneaza mereu lista actualizata
+         * ### ar trebui sa scrii si in fisier noul pacient ###
+         *
          */
         patientsList.add(registeredPatient);
 
-        //patientWriter.write(registeredPatient); ### ar trebui sa scrii si in fisier noul pacient ###
+        DisplayData.displayMessage(Consts.REGISTERED_SUCCESSFUL);
     }
 
 

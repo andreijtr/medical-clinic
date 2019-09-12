@@ -7,6 +7,7 @@
 package com.sda.clinica.medicala.consultation;
 
 import com.sda.clinica.medicala.display.DisplayData;
+import com.sda.clinica.medicala.patient.Patient;
 import com.sda.clinica.medicala.utils.Consts;
 
 import java.util.LinkedList;
@@ -77,5 +78,18 @@ public class ManagerConsultations {
             }
         }
         DisplayData.newLine();
+    }
+
+    public boolean validatePatientForConsultation(Patient patient) {
+        boolean hasConsultation = false;
+
+        for (Consultation c : consulatationsWaitingQueue) {
+            if (c.getPatient().equals(patient)) {
+                hasConsultation = true;
+                break;
+            }
+        }
+
+        return hasConsultation;
     }
 }

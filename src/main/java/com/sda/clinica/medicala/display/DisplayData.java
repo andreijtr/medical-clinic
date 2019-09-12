@@ -9,6 +9,10 @@ public class DisplayData {
         System.out.println(message);
     }
 
+    public static void displayMessageOnSameLine (String message) {
+        System.out.print(message);
+    }
+
     public static void newLine() {
         System.out.println();
     }

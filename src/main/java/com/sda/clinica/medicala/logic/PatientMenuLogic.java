@@ -50,31 +50,52 @@ public class PatientMenuLogic {
             if (patientIsInList) {
                 switch (option) {
                     case 1:
-                        long CNPOfDoctorForActualPatient = actualPatient.getCNPOfPatientDoctor();
-                        Doctor doctorForActualPatient = null;
+                        long CNPOfDoctorForConsultation = 0;
+                        Doctor doctorForConsultation = null;
 
-                        /**s-a preluat cnp-ul doctorului pacientului, se verifica daca exista in lsita de doctori
-                         *trebuie sa exista in lista pt ca doctorii pacientilor s-au setat pe baza listei de doctori
+                        /**s-a preluat cnp-ul doctorului pacientului, i se afiseaza lista de medici pt a alege la care vrea
+                         * consultatia. Medicul sau de familie va fi marcat
                         */
+
+                        DisplayData.displayMessage(Consts.PATIENT_CHOOSE_DOCTOR);
+                        int index = 1;
                         for (Doctor element : doctorList) {
-                            if (element.getCNP() == CNPOfDoctorForActualPatient) {
-                                doctorForActualPatient = element;
-                                break;
+                            if (element.getCNP() == actualPatient.getCNPOfPatientDoctor()) {
+                                DisplayData.displayMessage(index + ". " + element + Consts.PATIENT_FAMILY_DOCTOR_MESSAGE);
+                            } else {
+                                DisplayData.displayMessage(index + ". " + element);
                             }
+                            index++;
                         }
 
-                        DisplayData.displayMessage(Consts.PATIENT_GIVE_REASON_FOR_CONSULTATION);
-                        String reasonForConsultation = scanner.nextLine();
+                        int patientOption = scanner.nextInt();
+                        scanner.nextLine();
 
-                        /**se programeaza o consultatie pt pacientul actual folosind managerul de consultatii (fiecare
-                         *doctor are un astfel de manager
-                        */
-                        Consultation consultationOfActualPatient = new Consultation(actualPatient, reasonForConsultation);
-                        doctorForActualPatient.managerConsultations.scheduleConsultation(consultationOfActualPatient);
+                        if (patientOption < index && patientOption != 0) {
+                            doctorForConsultation = doctorList.get(patientOption - 1);
 
-                        DisplayData.displayMessage(Consts.PATIENT_YOU_HAVE_A_CONSULTATION + doctorForActualPatient);
-                        DisplayData.displayMessage(Consts.PATIENT_WAINT_FOR_YOUR_TURN);
-                        DisplayData.newLine();
+                            if (doctorForConsultation.managerConsultations.validatePatientForConsultation(actualPatient)) {
+                                DisplayData.displayMessage(Consts.PATIENT_YOU_ALREADY_HAVE_A_CONSULTATION);
+                                //isPatientMenuRunning = false;
+                                break;
+                            } else {
+                                DisplayData.displayMessage(Consts.PATIENT_GIVE_REASON_FOR_CONSULTATION);
+                                String reasonForConsultation = scanner.nextLine();
+
+                                /**se programeaza o consultatie pt pacientul actual folosind managerul de consultatii (fiecare
+                                 *doctor are un astfel de manager
+                                 */
+                                Consultation consultationOfActualPatient = new Consultation(actualPatient, reasonForConsultation);
+                                doctorForConsultation.managerConsultations.scheduleConsultation(consultationOfActualPatient);
+
+                                DisplayData.displayMessage(Consts.PATIENT_YOU_HAVE_A_CONSULTATION + doctorForConsultation);
+                                DisplayData.displayMessage(Consts.PATIENT_WAINT_FOR_YOUR_TURN);
+                                DisplayData.newLine();
+                            }
+                        } else {
+                            DisplayData.displayMessage(Consts.OPTION_NOT_VALID);
+                            break;
+                        }
 
                         isPatientMenuRunning = false;
                         break;
@@ -98,19 +119,20 @@ public class PatientMenuLogic {
 
                 int userOption = scanner.nextInt();
 
-                switch (option) {
+                switch (userOption) {
                     case 1:
+
                         DisplayData.newLine();
                         databaseManager.registerPatient();
                         isPatientMenuRunning = false;
                         break;
                     case 2:
-                    default:
                         isPatientMenuRunning = false;
                         break;
+                    default:
+                        isPatientMenuRunning = false;
 
                 }
-                //System.out.println("Nu exista optiunea sa va inregistram inca.");
             }
         }
 
