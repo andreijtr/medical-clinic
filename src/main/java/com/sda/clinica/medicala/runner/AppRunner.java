@@ -1,6 +1,8 @@
 package com.sda.clinica.medicala.runner;
 
 import com.sda.clinica.medicala.logic.ApplicationLogic;
+import com.sda.clinica.medicala.patient.PatientReaderJson;
+import com.sda.clinica.medicala.utils.Consts;
 
 public class AppRunner {
 

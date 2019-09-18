@@ -22,6 +22,7 @@ public interface Consts {
      */
     public final static String PATH_TO_PATIENTS_FILE = "C:\\SSD\\JAVA\\ClinicaMedicala\\src\\main\\resources\\patients.txt";
     String PATH_TO_DOCTORS_FILE = "C:\\SSD\\JAVA\\ClinicaMedicala\\src\\main\\resources\\doctors.txt";
+    String PATH_TO_JSON_PATIENTS = "C:\\SSD\\JAVA\\ClinicaMedicala\\src\\main\\resources\\patientsInJsonFormat.json";
 
     /**
      *mesaje manager consultatii

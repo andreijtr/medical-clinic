@@ -1,0 +1,55 @@
+[
+    {"firstName" : "Florin",
+      "lastName" : "Ursulea",
+      "CNP" : 1234,
+      "CNPOfPatientDoctor" : 5123
+    },
+    {
+      "firstName" : "Mihai",
+      "lastName" : "Viteazul",
+      "CNP" : 1235,
+      "CNPOfPatientDoctor" : 5124
+    },
+    {
+      "firstName" : "monica",
+      "lastName" : "junica",
+      "CNP" : 1236,
+      "CNPOfPatientDoctor" : 5124
+    },
+    {
+      "firstName" : "razvan",
+      "lastName" : "tutu",
+      "CNP" : 1237,
+      "CNPOfPatientDoctor" : 5124
+    },
+    {
+      "firstName" : "claudia",
+      "lastName" : "monetaru",
+      "CNP" : 1238,
+      "CNPOfPatientDoctor" : 5124
+    },
+    {
+      "firstName" : "robert",
+      "lastName" : "minciuna",
+      "CNP" : 1239,
+      "CNPOfPatientDoctor" : 5123
+    },
+    {
+      "firstName" : "gabi",
+      "lastName" : "sasuolo",
+      "CNP" : 1240,
+      "CNPOfPatientDoctor" : 5123
+    },
+    {
+      "firstName" : "florin",
+      "lastName" : "dumitru",
+      "CNP" : 1241,
+      "CNPOfPatientDoctor" : 5123
+    },
+    {
+      "firstName" : "mircea",
+      "lastName" : "portaru",
+      "CNP" : 1242,
+      "CNPOfPatientDoctor" : 5123
+    }
+]

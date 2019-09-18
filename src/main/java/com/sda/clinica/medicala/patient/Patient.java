@@ -2,7 +2,6 @@ package com.sda.clinica.medicala.patient;
 
 import com.sda.clinica.medicala.model.Person;
 
-import java.util.Objects;
 
 public class Patient extends Person {
 

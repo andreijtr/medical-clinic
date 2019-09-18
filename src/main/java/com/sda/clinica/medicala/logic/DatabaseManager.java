@@ -12,6 +12,7 @@ import com.sda.clinica.medicala.display.DisplayData;
 import com.sda.clinica.medicala.doctor.Doctor;
 import com.sda.clinica.medicala.doctor.DoctorsReader;
 import com.sda.clinica.medicala.patient.Patient;
+import com.sda.clinica.medicala.patient.PatientReaderJson;
 import com.sda.clinica.medicala.patient.PatientsReader;
 import com.sda.clinica.medicala.utils.Consts;
 
@@ -26,14 +27,20 @@ public class DatabaseManager {
     private PatientsReader patientsReader;
     private DoctorsReader doctorsReader;
 
+    private PatientReaderJson patientReaderJson;
+
     private List<Patient> patientsList;
     private List<Doctor> doctorsList;
 
     public DatabaseManager() {
         this.scanner = new Scanner(System.in);
+
         this.patientsReader = new PatientsReader();
+        this.patientReaderJson = new PatientReaderJson();
+
         this.doctorsReader = new DoctorsReader();
-        patientsList = patientsReader.readPatientsFromFile(Consts.PATH_TO_PATIENTS_FILE);
+
+        patientsList = patientReaderJson.readPatientsFromJson(Consts.PATH_TO_JSON_PATIENTS);
         doctorsList = doctorsReader.readDoctorsFromFile(Consts.PATH_TO_DOCTORS_FILE);
     }
 
